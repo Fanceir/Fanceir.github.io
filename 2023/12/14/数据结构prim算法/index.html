@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>后续的计划 | fanceir</title>
+  <title>数据结构prim算法 | fanceir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="后续的计划 数据结构的练习 主要是上课后写的一些板子，方便以后考试的复习 预计会在2023.12.25完成 xcpc板子 准备一些基本的板子，方便到时候打印？ 每周的训练计划和训练的情况">
+  <meta name="description" content="prim算法 算法从顶点$v_0$开始，每次找到一个顶点$v_i$，使得$v_i$到生成树的权值最小，然后将$v_i$加入生成树，然后更新辅助数组，直到所有的顶点都加入生成树为止。 需用一个辅助数组close来记录已经加入生成树的顶点，以及顶点到生成树的最小权值每次找到权值最小的边，然后加入生成树，然后更新辅助数组，直到所有的顶点都加入生成树为止。 这是本周的数据结构上课写的代码，应该还是比较容易">
 <meta property="og:type" content="article">
-<meta property="og:title" content="后续的计划">
-<meta property="og:url" content="http://example.com/2023/12/12/%E5%90%8E%E7%BB%AD%E7%9A%84%E8%AE%A1%E5%88%92/index.html">
+<meta property="og:title" content="数据结构prim算法">
+<meta property="og:url" content="http://example.com/2023/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84prim%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="fanceir">
-<meta property="og:description" content="后续的计划 数据结构的练习 主要是上课后写的一些板子，方便以后考试的复习 预计会在2023.12.25完成 xcpc板子 准备一些基本的板子，方便到时候打印？ 每周的训练计划和训练的情况">
+<meta property="og:description" content="prim算法 算法从顶点$v_0$开始，每次找到一个顶点$v_i$，使得$v_i$到生成树的权值最小，然后将$v_i$加入生成树，然后更新辅助数组，直到所有的顶点都加入生成树为止。 需用一个辅助数组close来记录已经加入生成树的顶点，以及顶点到生成树的最小权值每次找到权值最小的边，然后加入生成树，然后更新辅助数组，直到所有的顶点都加入生成树为止。 这是本周的数据结构上课写的代码，应该还是比较容易">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-12-12T12:44:58.000Z">
-<meta property="article:modified_time" content="2023-12-14T13:52:37.910Z">
+<meta property="article:published_time" content="2023-12-14T13:35:29.000Z">
+<meta property="article:modified_time" content="2023-12-14T13:51:25.132Z">
 <meta property="article:author" content="Fan Xu">
-<meta property="article:tag" content="杂项">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="fanceir" type="application/atom+xml">
@@ -37,119 +37,7 @@
 
   
 
-<meta name="generator" content="Hexo 7.0.0"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style></head>
+<meta name="generator" content="Hexo 7.0.0"></head>
 
   <!--浏览器搞笑标题-->
   <script type="text/javascript" src="source\FunnyTitle.js"></script>
@@ -273,34 +161,31 @@ mjx-container[display="true"] + br {
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-后续的计划" class="article article-type-post " itemscope itemprop="blogPost">
+                <article id="post-数据结构prim算法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      后续的计划
+      数据结构prim算法
     </h1>
   
 
         
-        <a href="/2023/12/12/%E5%90%8E%E7%BB%AD%E7%9A%84%E8%AE%A1%E5%88%92/" class="archive-article-date">
-  	<time datetime="2023-12-12T12:44:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-12</time>
+        <a href="/2023/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84prim%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2023-12-14T13:35:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1>后续的计划</h1>
-<h2 id="数据结构的练习">数据结构的练习</h2>
-<p>主要是上课后写的一些板子，方便以后考试的复习<br>
-预计会在2023.12.25完成</p>
-<h2 id="xcpc板子">xcpc板子</h2>
-<p>准备一些基本的板子，方便到时候打印？</p>
-<h2 id="每周的训练计划和训练的情况">每周的训练计划和训练的情况</h2>
-
+        <h2 id="prim算法">prim算法</h2>
+<p>算法从顶点$v_0$开始，每次找到一个顶点$v_i$，使得$v_i$到生成树的权值最小，然后将$v_i$加入生成树，然后更新辅助数组，直到所有的顶点都加入生成树为止。</p>
+<p>需用一个辅助数组close来记录已经加入生成树的顶点，以及顶点到生成树的最小权值每次找到权值最小的边，然后加入生成树，然后更新辅助数组，直到所有的顶点都加入生成树为止。</p>
+<p>这是本周的数据结构上课写的代码，应该还是比较容易写出来的，注释应该写的也是比较清楚了，明天应该会更新一下dijkstra算法。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> VertexType char   <span class="comment">// 顶点类型</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> VRType int        <span class="comment">// 顶点关系类型</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_VERTEX_NUM 20 <span class="comment">// 最大顶点个数</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> InfoType char</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> INFINITY 65535 <span class="comment">// 用65535来代表∞</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">    VRType adj;     <span class="comment">// 对于无权图，用1或0表示是否相邻；对于带权图，直接为权值。</span></span><br><span class="line">    InfoType *info; <span class="comment">// 信息指针</span></span><br><span class="line">&#125; ArcCell, AdjMatrix[MAX_VERTEX_NUM][MAX_VERTEX_NUM];</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">    VertexType vexs[MAX_VERTEX_NUM]; <span class="comment">// 顶点向量</span></span><br><span class="line">    AdjMatrix arcs;                  <span class="comment">// 邻接矩阵</span></span><br><span class="line">    <span class="type">int</span> vexnum, arcnum;              <span class="comment">// 图的当前顶点数和弧数</span></span><br><span class="line">&#125; MGraph;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LocateVex</span><span class="params">(MGraph G, VertexType v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= G.vexnum; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (G.vexs[i] == v)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125; <span class="comment">// 返回顶点v在图G中的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 采用邻接矩阵表示法，创建无向网</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CreateUDN</span><span class="params">(MGraph &amp;G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cin &gt;&gt; G.vexnum &gt;&gt; G.arcnum; <span class="comment">// 输入顶点数和边数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cin &gt;&gt; G.vexs[i]; <span class="comment">// 输入顶点信息，建立顶点向量</span></span><br><span class="line">    &#125;                          <span class="comment">// 输入顶点信息，建立顶点向量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; G.vexnum; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            G.arcs[i][j].adj = INFINITY; <span class="comment">// 初始化邻接矩阵</span></span><br><span class="line">            G.arcs[i][j].info = <span class="literal">NULL</span>;    <span class="comment">// 初始化邻接矩阵</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.arcnum; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> v1, v2; <span class="comment">// 注意一下这里是char 类型的如果VertexType是int这里就是int</span></span><br><span class="line">        <span class="type">int</span> w;</span><br><span class="line">        std::cin &gt;&gt; v1 &gt;&gt; v2 &gt;&gt; w; <span class="comment">//</span></span><br><span class="line">        <span class="type">int</span> m = <span class="built_in">LocateVex</span>(G, v1);</span><br><span class="line">        <span class="type">int</span> n = <span class="built_in">LocateVex</span>(G, v2);</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">-1</span> || n == <span class="number">-1</span>) <span class="comment">// 顶点不存在</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        G.arcs[m][n].adj = w;</span><br><span class="line">        G.arcs[n][m].adj = w;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">    VertexType adjvex; <span class="comment">// 记录权值最小的边的开始点</span></span><br><span class="line">    VRType lowcost;    <span class="comment">// 记录权值最小的边的权值</span></span><br><span class="line">&#125; closedge[MAX_VERTEX_NUM];</span><br><span class="line"><span class="comment">// 从顶点u出发，构造网G的最小生成树T，输出T的各条边</span></span><br><span class="line">closedge close; <span class="comment">// 定义辅助数组</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">mininum</span><span class="params">(MGraph G, closedge close)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> min = INFINITY; <span class="comment">// 初始化最小值</span></span><br><span class="line">    <span class="type">int</span> k = <span class="number">0</span>;          <span class="comment">// 初始化最小值的下标</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (close[i].lowcost &gt; <span class="number">0</span> &amp;&amp; close[i].lowcost &lt; min)</span><br><span class="line">        &#123;</span><br><span class="line">            min = close[i].lowcost;</span><br><span class="line">            k = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 找到权值最小的边的下标</span></span><br><span class="line">    <span class="keyword">return</span> k;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MiniSpanTree_PRIM</span><span class="params">(MGraph G, VertexType u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> k = <span class="built_in">LocateVex</span>(G, u); <span class="comment">// 找到顶点u在图G中的位置</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; i++) <span class="comment">// 初始化辅助数组</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (i != k)</span><br><span class="line">        &#123;</span><br><span class="line">            close[i].adjvex = u;</span><br><span class="line">            close[i].lowcost = G.arcs[k][i].adj; <span class="comment">// 顶点u到其他顶点的权值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    close[k].lowcost = <span class="number">0</span>; <span class="comment">// 顶点u加入生成树</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; G.vexnum; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        k = <span class="built_in">mininum</span>(G, close);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c %c\n&quot;</span>, close[k].adjvex, G.vexs[k]); <span class="comment">// 输出生成树的边</span></span><br><span class="line">        close[k].lowcost = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; G.vexnum; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (G.arcs[k][j].adj &lt; close[j].lowcost) <span class="comment">// 更新辅助数组</span></span><br><span class="line">            &#123;</span><br><span class="line">                close[j] = &#123;G.vexs[k], G.arcs[k][j].adj&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(MGraph G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G.vexnum; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; G.vexnum; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (G.arcs[i][j].adj == INFINITY)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;∞ &quot;</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, G.arcs[i][j].adj);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MGraph G;</span><br><span class="line">    <span class="built_in">CreateUDN</span>(G);</span><br><span class="line">    <span class="built_in">MiniSpanTree_PRIM</span>(G, G.vexs[<span class="number">0</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输出邻接矩阵\n&quot;</span>);</span><br><span class="line">    <span class="built_in">print</span>(G);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">6 10</span></span><br><span class="line"><span class="comment">A</span></span><br><span class="line"><span class="comment">B</span></span><br><span class="line"><span class="comment">C</span></span><br><span class="line"><span class="comment">D</span></span><br><span class="line"><span class="comment">E</span></span><br><span class="line"><span class="comment">F</span></span><br><span class="line"><span class="comment">A B 6</span></span><br><span class="line"><span class="comment">A C 1</span></span><br><span class="line"><span class="comment">A D 5</span></span><br><span class="line"><span class="comment">B C 5</span></span><br><span class="line"><span class="comment">C D 5</span></span><br><span class="line"><span class="comment">B E 3</span></span><br><span class="line"><span class="comment">C E 6</span></span><br><span class="line"><span class="comment">C F 4</span></span><br><span class="line"><span class="comment">E F 6</span></span><br><span class="line"><span class="comment">D F 2</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
 
       
@@ -339,7 +224,7 @@ mjx-container[display="true"] + br {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -395,7 +280,7 @@ mjx-container[display="true"] + br {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/12/12/%E5%90%8E%E7%BB%AD%E7%9A%84%E8%AE%A1%E5%88%92/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84prim%E7%AE%97%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -409,15 +294,11 @@ mjx-container[display="true"] + br {
   
 <nav id="article-nav">
   
-    <a href="/2023/12/12/2023%E6%8B%9B%E6%96%B0%E8%B5%9B%E9%A2%98%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2023招新赛题解
-        
-      </div>
-    </a>
   
+    <a href="/2023/12/12/2023%E6%8B%9B%E6%96%B0%E8%B5%9B%E9%A2%98%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2023招新赛题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
